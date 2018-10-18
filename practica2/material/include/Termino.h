@@ -8,6 +8,7 @@
 #define TERMINO
 
 #include <iostream>
+#include "Vector_Dinamico.h"
 
 using namespace std;
 
@@ -46,7 +47,7 @@ private:
 
    string termino;
 
-   Vector_Dinamico definiciones();
+   Vector_Dinamico<String> definiciones(1);
 
 
 public:
@@ -71,20 +72,47 @@ public:
    Termino(const Termino & original);
 
 	/**
-	 * @brief getPalabra
+	 * @brief Obtener la palabra
 	 * @param indice
 	 * @return string con la palabra
 	 */
 
-	string getPalabra(const int indice) const;
+	string getPalabra() const;
 
    /**
-    * @brief Consultor de definicion
+    * @brief Consultor de definiciones
     * @param palabra
     */
 
-   string getDefinicion(const string palabra) const;
+   Vector_Dinamico<string> getDefiniciones() const;
 
+	/**
+	 * @brief Obtener el numero de definiciones de un termino
+	 * 
+	 * @return entero con numero de definiciones
+	 */
+
+	int getNumDefiniciones() const;
+
+	/**
+	 * @brief Establecer la palabra del termino
+	 * @param palabra a establecer
+	 * @pre palabra != ""
+	 * 
+	 */
+
+	void setPalabra(const string & palabra);
+
+	/**
+	 * @brief Añadir una definicion a una palabra
+	 * @param definicion
+	 * 
+	 * 
+	 */
+
+	void addDefinicion(const string & definicion);
+
+	friend operator<< (ostream & out, )
 
 };
 
