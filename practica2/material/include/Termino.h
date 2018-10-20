@@ -47,10 +47,16 @@ private:
 
    string termino;
 
-   Vector_Dinamico<String> definiciones(1);
+   Vector_Dinamico<String> definiciones;
 
 
 public:
+
+   /**
+    * @brief Constructor sin parametros
+    */
+
+   Termino();
 
    /**
     * @brief Constructor con dos parametros, el termino, y la primera definicion
@@ -62,6 +68,16 @@ public:
 
    Termino(const string & palabra, const string & definicion);
    
+
+	/**
+    * @brief Constructor con dos parametros, el termino, y un array de definiciones
+    * @param palabra Palabra a asignar en el termino
+    * @param n_definiciones Definiciones de la palabra
+    * @pre palabra != ""
+    * @pre definiciones != ""
+    */
+
+   Termino(const string & palabra, const string & definiciones);
 
    /**
     * @brief Constructor de copia
@@ -80,11 +96,17 @@ public:
 	string getPalabra() const;
 
    /**
-    * @brief Consultor de definiciones
-    * @param palabra
+    * @brief Consultor de definiciones de un termino
     */
 
    Vector_Dinamico<string> getDefiniciones() const;
+
+	/**
+    * @brief Consultor de una definicion de un termino
+	 * @param indice Numero de la definicion
+    */
+
+   Vector_Dinamico<string> getDefinicion(const int indice) const;
 
 	/**
 	 * @brief Obtener el numero de definiciones de un termino
@@ -107,12 +129,32 @@ public:
 	 * @brief Añadir una definicion a una palabra
 	 * @param definicion
 	 * 
-	 * 
 	 */
 
 	void addDefinicion(const string & definicion);
 
-	friend operator<< (ostream & out, )
+
+	/**
+	 * @brief Operador de salida de flujo
+	 * @param out Flujo al que mandar termino
+	 * @param termino Termino a mandar por el flujo
+	 * 
+	 * @return referencia al flujo de salida
+	 */
+
+	friend ostream & operator << (ostream & out, Termino termino);
+
+
+	/**
+	 * @brief Operador de entrada de flujo
+	 * @param in Flujo por el que leer
+	 * @param termino Termino a leer por el flujo
+	 * 
+	 * @return referencia al flujo de entrada
+	 */
+
+	friend istream & operator >> (istream & in, Termino termino);
+
 
 };
 
