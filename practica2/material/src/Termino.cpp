@@ -1,4 +1,6 @@
 #include <iostream>
+#include <istream>
+#include <ostream>
 #include "Termino.h"
 #include "Vector_Dinamico.h"
 
@@ -18,14 +20,14 @@ Termino::Termino (const string & palabra,
     
     termino = palabra;
 	 definiciones.resize(1);
-    definicion[0] = ddefinicion;
+    definiciones[0] = definicion;
 }
 
 Termino::Termino (const string & palabra,
                   const Vector_Dinamico<string> & n_definiciones) {
     
     termino = palabra;
-    definiciones = n_ddefiniciones;
+    definiciones = n_definiciones;
 }
 
 //Constructor de copia
@@ -51,7 +53,7 @@ Vector_Dinamico<string> Termino::getDefiniciones() const {
 
 //Funcion para una definicion
 
-Vector_Dinamico<string> Termino::getDefiniciones(const int indice) const {
+string Termino::getDefinicion(const int indice) const {
     return (definiciones[indice]);
 }
 
@@ -60,7 +62,7 @@ Vector_Dinamico<string> Termino::getDefiniciones(const int indice) const {
 //de una termino
 
 int Termino::getNumDefiniciones() const{
-    return(definiciones.size);
+    return(definiciones.size());
 }
 
 //Operador para asignar la palabra
@@ -78,7 +80,7 @@ void Termino::addDefinicion(const string & definicion){
 
 //Operador de salida
 
-ostream & operator << (ostream & out, Termino termino){
+ostream & operator << (ostream & out, Termino & termino){
 
 	out << termino.getPalabra() << " : "  ;
 
@@ -91,17 +93,20 @@ ostream & operator << (ostream & out, Termino termino){
 
 //Operador de entrada
 
-istream & operator >> (istream & in, Termino termino){
+istream & operator >> (istream & in, Termino & termino){
 
-	in >> termino.termino;
-
+	string palabra = "";
 	string def = "";
 
-	while (!eof()){
-		getline(in, def);
+	//Leemos el termino
+	getline(in, palabra,';');
 
-		termino.addDefinicion(def);
-	}
+	termino.setPalabra(palabra);
+
+	getline(in, def);
+
+	termino.addDefinicion(def);
+
 
 	return in;
 

@@ -9,7 +9,10 @@
 #define DICCIONARIO
 
 #include <iostream>
+#include <istream>
+#include <ostream>
 #include "Vector_Dinamico.h"
+#include "Termino.h"
 
 using namespace std;
 
@@ -50,7 +53,7 @@ private:
 
 
 
-   Vector_Dinamico<Terminos> terminos;
+   Vector_Dinamico<Termino> terminos;
 
 
 public:
@@ -77,7 +80,7 @@ public:
     * @pre termino.size > 0
     */
 
-   Diccionario(const Vector_Dinamico<Termino> terminos);
+   Diccionario(const Vector_Dinamico<Termino> n_terminos);
 
    /**
     * @brief Constructor de copia
@@ -102,7 +105,7 @@ public:
 	 * @return Array con los terminos del diccionario
 	 */
 
-	Vector_Dinamico<Terminos> getTerminos();
+	Vector_Dinamico<Termino> getTerminos();
 
 	/**
 	 * @brief Obtener el numero de terminos del diccionario
@@ -118,7 +121,8 @@ public:
 	 * @param termino Termino a añadir
 	 * 
 	 * @pre termino es un termino valido
-	 * 
+	 * @pre si el termino ya esta, las definiciones del parametro son distintas
+	 * a las que ya hay
 	 */
 
 	void addTermino(const Termino & termino);
@@ -135,6 +139,17 @@ public:
 
 
 	/**
+	 * @brief Devuelve la posicion del termino con la palabra dada
+	 * @param palabra Palabra del termino a buscar
+	 * 
+	 * @pre El termino con palabra esta en el diccionario
+	 * @return Posicion del termino en el diccionario
+	 * 
+	 */
+
+	int posTermino(const string & palabra);
+
+	/**
 	 * @brief Obtener una seccion delimitada del diccionario
 	 * @param c_inicio Caracter de inicio de la seccion
 	 * @param c_fin Caracter de fin de la seccion
@@ -149,7 +164,7 @@ public:
 
 
 	/**
-	 * @brief Obtener un subcionjunto con los terminos que contengan
+	 * @brief Obtener un subconjunto con los terminos que contengan
 	 * la clave en sus definiciones, se devuelven las definiciones
 	 * que contengan la clave
 	 * 
@@ -181,7 +196,7 @@ public:
 	 * @return Promedio de definiciones por palabra
 	 */
 
-	int promedioDefiniciones();
+	double promedioDefiniciones();
 
 
 	/**
@@ -192,7 +207,7 @@ public:
 	 * @return referencia al flujo de salida
 	 */
 
-	friend ostream & operator << (ostream & out, Diccionario diccionario);
+	friend ostream & operator << (ostream & out, Diccionario & diccionario);
 
 
 	/**
@@ -203,7 +218,7 @@ public:
 	 * @return referencia al flujo de entrada
 	 */
 
-	friend istream & operator >> (istream & in, Diccionario diccionario);
+	friend istream & operator >> (istream & in, Diccionario & diccionario);
 
 	
 

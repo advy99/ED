@@ -17,8 +17,12 @@ int main(int argc, char * argv[]){
     return 0;
    }
    
+
+
    Diccionario mi_diccionario;
    f>>mi_diccionario; //Cargamos en memoria el diccionario
+
+	cout << endl << "Diccionario cargado correctamente en memoria." << endl;
    
    /* Exhibir aqui la funcionalidad programada para el TDA Diccionario / TDA Termino  
     Algunas sugerencias: 
@@ -28,5 +32,22 @@ int main(int argc, char * argv[]){
     - Obtener el numero total de definiciones, el maximo de definiciones asociadas a una unica palabra y el promedio de definiciones por palabra
     - Cualquier otra funcionalidad que considereis de interes 
    */
+
+  	cout << endl << "Numero de definiciones totales: "
+	             << mi_diccionario.getNumDefiniciones() << endl;
+
+	string palabra;
+
+	cout << "Introduce una palabra:";
+	cin >> palabra;
+
+	Vector_Dinamico<string> def;
+	def = mi_diccionario.getDefiniciones(palabra);
+
+	cout << endl << palabra << ": " << endl;
+	for (int i = 0 ; i < def.size();i++){
+		cout << "\t" << def[i] << endl;
+
+	}
 
 }

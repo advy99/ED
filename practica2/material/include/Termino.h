@@ -8,6 +8,8 @@
 #define TERMINO
 
 #include <iostream>
+#include <istream>
+#include <ostream>
 #include "Vector_Dinamico.h"
 
 using namespace std;
@@ -47,7 +49,7 @@ private:
 
    string termino;
 
-   Vector_Dinamico<String> definiciones;
+   Vector_Dinamico<string> definiciones;
 
 
 public:
@@ -77,7 +79,7 @@ public:
     * @pre definiciones != ""
     */
 
-   Termino(const string & palabra, const string & definiciones);
+   Termino(const string & palabra, const Vector_Dinamico<string> & definiciones);
 
    /**
     * @brief Constructor de copia
@@ -106,7 +108,7 @@ public:
 	 * @param indice Numero de la definicion
     */
 
-   Vector_Dinamico<string> getDefinicion(const int indice) const;
+   string getDefinicion(const int indice) const;
 
 	/**
 	 * @brief Obtener el numero de definiciones de un termino
@@ -142,7 +144,7 @@ public:
 	 * @return referencia al flujo de salida
 	 */
 
-	friend ostream & operator << (ostream & out, Termino termino);
+	friend ostream & operator << (ostream & out, Termino & termino);
 
 
 	/**
@@ -153,7 +155,7 @@ public:
 	 * @return referencia al flujo de entrada
 	 */
 
-	friend istream & operator >> (istream & in, Termino termino);
+	friend istream & operator >> (istream & in, Termino & termino);
 
 
 };
