@@ -18,8 +18,14 @@ int main(int argc, char * argv[]){
    }
    
 
+	string palabra;
+	char c_inicio, c_fin;
+
 
    Diccionario mi_diccionario;
+
+	cout << endl << "Comenzando a cargar diccionario."  << endl;
+
    f>>mi_diccionario; //Cargamos en memoria el diccionario
 
 	cout << endl << "Diccionario cargado correctamente en memoria." << endl;
@@ -32,16 +38,13 @@ int main(int argc, char * argv[]){
     - Obtener el numero total de definiciones, el maximo de definiciones asociadas a una unica palabra y el promedio de definiciones por palabra
     - Cualquier otra funcionalidad que considereis de interes 
    */
+	
 
-  	cout << endl << "Numero de definiciones totales: "
-	             << mi_diccionario.getNumDefiniciones() << endl;
-
-	string palabra;
-
-	cout << "Introduce una palabra:";
+	cout << "Introduce una palabra para mostrar sus definiciones: ";
 	cin >> palabra;
 
 	Vector_Dinamico<string> def;
+
 	def = mi_diccionario.getDefiniciones(palabra);
 
 	cout << endl << palabra << ": " << endl;
@@ -49,5 +52,42 @@ int main(int argc, char * argv[]){
 		cout << "\t" << def[i] << endl;
 
 	}
+
+
+	cout << endl << "Introduce el caracter de inicio para el filtro: ";
+	cin >> c_inicio;
+
+	cout << endl << "Introduce el caracter de fin para el filtro: " ;
+	cin >> c_fin;
+
+	Diccionario subdiccionario;
+	subdiccionario = mi_diccionario.filtroIntervalo(c_inicio, c_fin);
+
+	cout << subdiccionario  << endl;
+
+	cout << endl << endl << endl << "Usando filtro clave color:" << endl;
+
+	subdiccionario = mi_diccionario.filtroClave("color");
+
+	cout << subdiccionario << endl;
+
+
+	cout << endl << "Numero de definiciones totales: "
+					 << mi_diccionario.getNumDefiniciones() << endl;
+
+	cout << endl << "Maximo de definiciones asociadas a una palabra: "
+	             << mi_diccionario.maxDefinicionesAsociadasAPalabra() << endl;
+
+	cout << endl << "Promedio de definiciones por palabra: "
+	             << mi_diccionario.promedioDefiniciones() << endl;
+
+
+	cout << "Introduce una palabra a eliminar (la palabra ha de estar en el diccionario): ";
+	cin >> palabra;
+
+	mi_diccionario.removeTermino(palabra);
+
+	cout << mi_diccionario;
+
 
 }

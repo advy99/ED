@@ -26,7 +26,13 @@ Diccionario::Diccionario(const Diccionario & original){
 }
 
 Vector_Dinamico<string> Diccionario::getDefiniciones(const string & palabra){
-	return terminos[posTermino(palabra)].getDefiniciones();
+	int pos = posTermino(palabra);
+	if (pos != -1)
+		return terminos[pos].getDefiniciones();
+	else {
+		Vector_Dinamico<string> s;
+		return s;
+	}
 }
 
 
@@ -80,25 +86,15 @@ void Diccionario::addTermino(const Termino & termino){
 }
 
 void Diccionario::removeTermino(const string & palabra){
-	Vector_Dinamico<Termino> aux(terminos.size()-1 );
 
 	int a_eliminar = posTermino(palabra);
-	int i = 0;
-	
-	while (i < a_eliminar){
-		aux[i] = terminos[i];
-		i++;
+	if (a_eliminar != -1){
+		for (int i = a_eliminar; i < terminos.size() - 1; i++){
+			terminos[i] = terminos[i+1];
+		}
+
+		terminos.resize(terminos.size()-1);
 	}
-	//Saltamos la posicion a eliminar
-	i++;
-
-	//Copiamos los restantes
-	while (i < terminos.size()){
-		aux[i-1] = terminos[i];
-		i++;
-	}
-
-
 }
 
 
@@ -106,20 +102,24 @@ int Diccionario::posTermino(const string & palabra){
 
 	int media;
 	bool encontrado = false;
-	int inferior = 0, superior = terminos.size();
+	int inferior = 0, superior = terminos.size() - 1;
 
-	while( (inferior < superior) && !encontrado){
+	while( (inferior <= superior) && !encontrado){
 		media = (inferior+superior)/2;
 
-		if(terminos[media].getPalabra() == palabra)
-			encontrado = true;
-		else if ( terminos[media].getPalabra().compare( palabra ) < 0 )
+		if(terminos[media].getPalabra().compare(palabra) < 0)
 			inferior = media + 1;
-		else
+		else if ( terminos[media].getPalabra().compare( palabra ) > 0 )
 			superior = media - 1;
+		else
+			encontrado = true;
 	}
 
-	return media;
+
+	if (encontrado)
+		return media;
+	else
+		return -1;
 
 }
 
@@ -129,9 +129,9 @@ Diccionario Diccionario::filtroIntervalo(const char & c_inicio,
 	bool pasado = false;
 
 	for (int i = 0; i < terminos.size() && !pasado; i++){
-		pasado = c_fin > terminos[i].getPalabra().at(0);
+		pasado = c_fin < terminos[i].getPalabra().at(0);
 
-		if (c_inicio >= terminos[i].getPalabra().at(0) && !pasado )
+		if (c_inicio <= terminos[i].getPalabra().at(0) && !pasado )
 			filtrado.addTermino(terminos[i]);
 	}
 
