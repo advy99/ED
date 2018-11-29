@@ -124,6 +124,23 @@ double Diccionario::promedioDefiniciones(){
 	return promedio;
 }
 
+Diccionario::iterator Diccionario::begin(){
+	return terminos.begin();
+}
+
+Diccionario::const_iterator Diccionario::begin() const{
+	return terminos.begin();
+}
+
+Diccionario::iterator Diccionario::end(){
+	return terminos.end();
+}
+
+Diccionario::const_iterator Diccionario::end() const{
+	return terminos.end();
+}
+
+
 ostream & operator << (ostream & os, const Diccionario & d){
 	Diccionario::const_iterator it;
 

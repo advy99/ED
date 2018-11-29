@@ -147,6 +147,7 @@ public:
 
 
 
+	bool operator < (const Termino & otro ) const;
 
 
 

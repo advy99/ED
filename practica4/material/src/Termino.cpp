@@ -97,7 +97,9 @@ Termino::const_iterator Termino::end() const{
 	return termino.second.end();
 }
 
-
+bool Termino::operator < (const Termino & otro) const{	
+	return (termino.first < otro.termino.first);
+}
 
 
 //Operador de salida
@@ -114,7 +116,6 @@ ostream & operator << (ostream & os, const Termino & t){
 //Operador de entrada
 
 istream & operator >> (istream & in, Termino & termino){
-
 	
 
 }
