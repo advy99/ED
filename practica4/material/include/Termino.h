@@ -160,7 +160,7 @@ public:
 	 * @return referencia al flujo de salida
 	 */
 
-	friend ostream & operator << (ostream & os, Termino & t);
+	friend ostream & operator << (ostream & os, const Termino & t);
 
 
 	/**

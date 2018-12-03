@@ -222,7 +222,7 @@ public:
 	 * @return referencia al flujo de salida
 	 */
 
-	friend ostream & operator << (ostream & out, Diccionario & diccionario);
+	friend ostream & operator << (ostream & out, const Diccionario & diccionario);
 
 
 	/**

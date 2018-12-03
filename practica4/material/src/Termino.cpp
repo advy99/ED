@@ -117,5 +117,20 @@ ostream & operator << (ostream & os, const Termino & t){
 
 istream & operator >> (istream & in, Termino & termino){
 	
+	string palabra = "";
+	string def = "";
+
+	//Leemos el termino
+	getline(in, palabra,';');
+
+	termino.setPalabra(palabra);
+
+	getline(in, def);
+
+	termino.addDefinicion(def);
+
+
+	return in;
+
 
 }

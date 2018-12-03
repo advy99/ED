@@ -85,10 +85,49 @@ int Diccionario::posTermino(const string & palabra){
 
 Diccionario Diccionario::filtroIntervalo(const char & c_inicio,
                                          const char & c_fin){
+	Diccionario filtrado;
+	bool pasado = false;
 
+	set<Termino>::iterator it;
+
+	for (it = terminos.begin(); it != terminos.end(); it++){
+		pasado = c_fin < (*it).getPalabra().at(0);
+
+		if (c_inicio <= (*it).getPalabra().at(0) && !pasado )
+			filtrado.addTermino((*it));
+	}
+
+	return filtrado;
 }
 
 Diccionario Diccionario::filtroClave(const string & clave){
+
+	Diccionario filtrado;
+
+	set<Termino>::iterator it;
+	Termino t;
+
+	for (it = terminos.begin(); it != terminos.end(); it++){
+
+		Termino::const_iterator it_ter;
+		
+		t.setPalabra((*it).getPalabra());
+		for (it_ter = (*it).begin() ;it_ter != (*it).end() ; it_ter++ ){
+			
+			//Si encuentra la posicion, esa definicion lo tiene
+			if ((*it_ter).find(clave) != string::npos )
+				t.addDefinicion((*it_ter));
+
+		}
+
+		if (t.getNumDefiniciones() > 0)
+			filtrado.addTermino(t);
+		
+
+	}
+
+
+	return filtrado;
 
 }
 
@@ -153,4 +192,36 @@ ostream & operator << (ostream & os, const Diccionario & d){
 
 istream & operator >> (istream & in, Diccionario & diccionario){
 
+	string palabra = "";
+	string definicion = "";
+
+	getline(in,palabra, ';');
+
+
+	while(!in.eof()){
+
+		Termino t;
+		
+		getline(in,definicion);
+
+		t.setPalabra(palabra);
+		t.addDefinicion(definicion);
+
+		getline(in,palabra, ';');
+
+		while (palabra == t.getPalabra()){
+
+			getline(in,definicion);
+			t.addDefinicion(definicion);
+
+			getline(in,palabra,';');
+
+		}
+
+		diccionario.addTermino(t);
+
+
+	}
+
+	return in;
 }

@@ -1,0 +1,27 @@
+var classDiccionario =
+[
+    [ "const_iterator", "classDiccionario.html#a2e86a5840e62eab4f1499c2f23561cba", null ],
+    [ "iterator", "classDiccionario.html#a91820df8d3ba094a119e4ad5af589156", null ],
+    [ "Diccionario", "classDiccionario.html#aa0a2191ec706b256c35b5229cc197b15", null ],
+    [ "Diccionario", "classDiccionario.html#a84d7db16efd0eadbf086e1ca852b8f31", null ],
+    [ "Diccionario", "classDiccionario.html#a8116b51c4a2e5741f4df1927e14c0c5d", null ],
+    [ "Diccionario", "classDiccionario.html#a85540225a53beece99543842b7077494", null ],
+    [ "addTermino", "classDiccionario.html#ad50dda509149d95a29f96893402ffe9c", null ],
+    [ "begin", "classDiccionario.html#ab270eb969d580f01b358e648a3061ac4", null ],
+    [ "begin", "classDiccionario.html#a5196245f1d267b0ddb9350dfa8f33b2c", null ],
+    [ "end", "classDiccionario.html#a7de585de002dfdec241b645bc57a3d0a", null ],
+    [ "end", "classDiccionario.html#a8161ae4e92a33e516bf73741e8299846", null ],
+    [ "filtroClave", "classDiccionario.html#a0f566d4222b4f059779891f160a5f29f", null ],
+    [ "filtroIntervalo", "classDiccionario.html#adaaff635ce799c74b1ede1339ef3d793", null ],
+    [ "getDefiniciones", "classDiccionario.html#a61888ab22dafb7f48675ade9e8ff120d", null ],
+    [ "getNumDefiniciones", "classDiccionario.html#a565f77d027ce8c0ce49a2238eca1c222", null ],
+    [ "getTerminos", "classDiccionario.html#a42bd2f4b3df1332bd69f7b0352f2a4bf", null ],
+    [ "maxDefinicionesAsociadasAPalabra", "classDiccionario.html#ade9b2f2855b0e6d8b37b45eec59e9629", null ],
+    [ "numTerminos", "classDiccionario.html#ae80dd6000c0b54de412ec0a09437156d", null ],
+    [ "posTermino", "classDiccionario.html#a5a0a120a0e29fee855ac232bd96e9801", null ],
+    [ "promedioDefiniciones", "classDiccionario.html#a00446ff276d8dd703598e899aedff6f8", null ],
+    [ "removeTermino", "classDiccionario.html#a9ff79a8c25faa02e44f9eb69bce27140", null ],
+    [ "operator<<", "classDiccionario.html#a0f4c017aa08e0fbf99e319e23c20c1b6", null ],
+    [ "operator>>", "classDiccionario.html#a47310e34a95dcae093997e2c9c8d75fc", null ],
+    [ "terminos", "classDiccionario.html#a732d8c028ce9e50a435cdf69a468168d", null ]
+];
