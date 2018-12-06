@@ -33,7 +33,7 @@ using namespace std;
   *
   * @author María Sánchez Marcos
   * @author Antonio David Villegas Yeguas
-  * @date Octubre 2018
+  * @date Diciembre 2018
   */
 
 class Diccionario{
@@ -44,7 +44,6 @@ private:
   *
   * @section invDiccionario Invariante de la representación
   *
-  * El invariante es; terminos.size > 0
   *
   * @section faConjunto Función de abstracción
   *
@@ -61,8 +60,20 @@ private:
 
 public:
 
+   /**
+    * @brief Declaracion del iterador de la clase como un iterador
+    * sobre un set de Termino
+    *
+    */
 
    typedef set<Termino>::iterator iterator;
+
+   /**
+   * @brief Declaracion del iterador constante de la clase como un iterador
+   * constante sobre un set de Termino
+   *
+   */
+
    typedef set<Termino>::const_iterator const_iterator;
 
    /**
@@ -206,10 +217,39 @@ public:
 
 
 
+   /**
+   * @brief Iterador que de vuelve el inicio de los terminos de un diccionario
+   *
+   * @return iterador con el inicio de los terminos del diccionario
+   */
+
+
    Diccionario::iterator begin();
+
+   /**
+   * @brief Iterador constante que de vuelve el inicio de los terminos de un diccionario
+   *
+   * @return iterador constante con el inicio de los terminos del diccionario
+   */
+
    Diccionario::const_iterator begin() const;
 
+
+   /**
+   * @brief Iterador que de vuelve el fin de los terminos de un diccionario
+   *
+   * @return iterador con el fin de los terminos del diccionario
+   */
+
    Diccionario::iterator end();
+
+
+   /**
+   * @brief Iterador constante que de vuelve el fin de los terminos de un diccionario
+   *
+   * @return iterador constante con el fin de los terminos del diccionario
+   */
+
    Diccionario::const_iterator end() const;
 
 
@@ -235,10 +275,6 @@ public:
 
 	friend istream & operator >> (istream & in, Diccionario & diccionario);
 
-
-
-
-	
 
 };
 

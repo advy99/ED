@@ -26,7 +26,7 @@ using namespace std;
   *
   * @author María Sánchez Marcos
   * @author Antonio David Villegas Yeguas
-  * @date Octubre 2018
+  * @date Diciembre 2018
   */
 
 class Termino{
@@ -37,7 +37,6 @@ private:
   *
   * @section invTermino Invariante de la representación
   *
-  * El invariante es; termino != "" y definiciones.size() > 0
   *
   * @section faConjunto Función de abstracción
   *
@@ -52,8 +51,19 @@ private:
 
 public:
 
+   /**
+    * @brief Declaracion del iterador de la clase como un iterador
+    * sobre un vector de string
+    *
+    */
 
    typedef vector<string>::iterator iterator;
+
+   /**
+    * @brief Declaracion del iterador constante de la clase como un iterador
+    * constante sobre un vector de string
+    *
+    */
    typedef vector<string>::const_iterator const_iterator;
 
 
@@ -139,12 +149,44 @@ public:
 	void addDefinicion(const string & definicion);
 
 
+   /**
+    * @brief Iterador que de vuelve el inicio de las definiciones de un termino
+    *
+    * @return iterador con el inicio de las definiciones de un termino
+    */
+
    Termino::iterator begin();
+
+   /**
+    * @brief Iterador constante que de vuelve el inicio de las definiciones de un termino
+    *
+    * @return iterador constante con el inicio de las definiciones de un termino
+    */
    Termino::const_iterator begin() const;
 
+
+   /**
+   * @brief Iterador que de vuelve el fin de las definiciones de un termino
+   *
+   * @return iterador con el fin de las definiciones de un termino
+   */
+
    Termino::iterator end();
+
+   /**
+   * @brief Iterador constante que de vuelve el fin de las definiciones de un termino
+   *
+   * @return iterador constante con el fin de las definiciones de un termino
+   */
    Termino::const_iterator end() const;
 
+
+   /**
+   * @brief Operador de relacion con otro termino <, nos indica cuando un termino
+   * es considerado menor que otro, es decir, al ordenarlo, lo precede
+   *
+   * @return bool con el resultado
+   */
 
 
 	bool operator < (const Termino & otro ) const;
