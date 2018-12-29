@@ -1,4 +1,4 @@
-/**
+//E/**
   * @file lista_palabras.h
   * @brief Fichero cabecera del TDA lista_palabras
   *
@@ -85,7 +85,7 @@ class lista_palabras{
        * 
       **/
 
-      friend istream & operator>> (istream & is, lista_palabras &D);
+      friend istream & operator >> (istream & is, lista_palabras &D);
 
       /**
        * @brief Escribe en un flujo de salida un lista_palabras
@@ -108,7 +108,7 @@ class lista_palabras{
 				set<string>::iterator it;
 		};
 		
-		iterator begin ();
+		iterator begin();
 		iterator end();	
 
 };

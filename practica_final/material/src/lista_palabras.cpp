@@ -56,20 +56,41 @@ ostream & operator << (ostream & os, const lista_palabras &D){
 }
 
 
-set<string>::iterator lista_palabras::begin(){
-	return datos.begin();
+lista_palabras::iterator lista_palabras::begin(){
+
+	// para el comienzo, lo iniciamos al comienzo de datos y lo devolvemos
+	iterator iterador;
+	iterador.it = datos.begin();
+	return iterados;
+
 }
 
-set<string>::iterator lista_palabras::end(){
-	return datos.end();
+lista_palabras::iterator lista_palabras::end(){
+	//para el final, devolvemos uno vacio
+	iterator iterador;
+	return iterador;
 }
 
 lista_palabras::iterator::iterator(){
-	// no se como inicializar aqui :TT :TT
-	it = begin();
+//Creo que esto esta vacio
 
 }
 
-string lista_palabras::iterator::operator *(){
+string lista_palabras::iterator::operator *(){ 
 	return (*it);
 }
+
+lista_palabras::iterator & lista_palabras::iterator::operator ++(){ 
+	it.next();
+	return it;
+}
+
+bool lista_palabras::iterator::operator==(const lista_palabras::iterator &i){
+	return i.it == it;
+}
+
+bool lista_palabras::iterator::operator!=(const lista_palabras::iterator &i){
+	return !(i.it == it);
+}
+
+
