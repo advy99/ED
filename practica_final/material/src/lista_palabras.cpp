@@ -15,9 +15,10 @@ int lista_palabras::size () const{
 vector<string> lista_palabras::palabras_longitud(int longitud){
 	vector<string> solucion;
 
-	set<string>::const_iterator it;
+	iterator it;
 
-	for(it = datos.begin(); it != datos.end(); it++ ){
+	for(it = begin(); it != end(); ++it ){
+		cout << (*it) << endl;
 		if( (*it).size() == longitud ){
 			solucion.push_back((*it));
 		}
@@ -61,13 +62,14 @@ lista_palabras::iterator lista_palabras::begin(){
 	// para el comienzo, lo iniciamos al comienzo de datos y lo devolvemos
 	iterator iterador;
 	iterador.it = datos.begin();
-	return iterados;
+	return iterador;
 
 }
 
 lista_palabras::iterator lista_palabras::end(){
 	//para el final, devolvemos uno vacio
 	iterator iterador;
+	iterador.it = datos.end();
 	return iterador;
 }
 
@@ -80,9 +82,9 @@ string lista_palabras::iterator::operator *(){
 	return (*it);
 }
 
-lista_palabras::iterator & lista_palabras::iterator::operator ++(){ 
-	it.next();
-	return it;
+lista_palabras::iterator & lista_palabras::iterator::operator++(){ 
+	++it;
+	return (*this);
 }
 
 bool lista_palabras::iterator::operator==(const lista_palabras::iterator &i){

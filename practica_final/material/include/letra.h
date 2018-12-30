@@ -21,6 +21,7 @@ class letra{
       int getPuntuacion () const;
 		int getNumApariciones() const;
 
+		bool operator == (const letra & otra);
 
 		friend istream & operator >> (istream & is, letra & l);
 		friend ostream & operator << (ostream & os, const letra & l);

@@ -9,11 +9,11 @@ set<letra> conjunto_letras::getLetras() const{
 	return letras;
 }
 
-letra conjunto_letras::getLetra(const char letra) const{
+letra conjunto_letras::getLetra(const letra letra) const{
 	return ( *(letras.find(letra)) );
 }
 
-bool conjunto_letras::Esta(const & letra) const{
+bool conjunto_letras::Esta(const letra & letra) const{
 	return ( letras.find(letra) != letras.end() ) ;
 }
 
@@ -25,7 +25,7 @@ istream & operator >> (istream & is, conjunto_letras & conjunto){
 	getline(is, primera_linea);
 
 	if(primera_linea.at(0) != '#'){
-		perr << "ERROR: No se puede leer el conjunto de letras" << endl;
+		cerr << "ERROR: No se puede leer el conjunto de letras" << endl;
 	} else {
 
 		while (is >> l ){

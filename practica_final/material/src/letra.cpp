@@ -14,6 +14,10 @@ int letra::getNumApariciones() const{
 }
 
 
+bool letra::operator == (const letra & otra){
+	return otra.getCaracter() == getCaracter();
+}
+
 istream & operator >> (istream & is, letra & l){
 
 	is >> l.caracter;

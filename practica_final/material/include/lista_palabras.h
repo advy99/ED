@@ -1,4 +1,4 @@
-//E/**
+/**
   * @file lista_palabras.h
   * @brief Fichero cabecera del TDA lista_palabras
   *
