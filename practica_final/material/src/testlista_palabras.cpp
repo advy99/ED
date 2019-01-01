@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
+#include <set>
 #include "lista_palabras.h"
 
 using namespace std;
@@ -32,7 +34,7 @@ int main (int argc, char * argv[]){
 
 	cout << "Leido el lista_palabras..." << endl;
 	cout << D;
-
+	f >> D;
 	int longitud;
 
 	cout << "Dime la longitud de palabras que quieres ver: ";

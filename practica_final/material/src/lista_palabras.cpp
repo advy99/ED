@@ -18,8 +18,7 @@ vector<string> lista_palabras::palabras_longitud(int longitud){
 	iterator it;
 
 	for(it = begin(); it != end(); ++it ){
-		cout << (*it) << endl;
-		if( (*it).size() == longitud ){
+		if( (*it).length() == (unsigned int) longitud ){
 			solucion.push_back((*it));
 		}
 	}

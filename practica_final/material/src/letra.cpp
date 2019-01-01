@@ -9,8 +9,8 @@ int letra::getPuntuacion() const{
    return puntuacion;
 }
 
-int letra::getNumApariciones() const{
-	return num_apariciones;
+int letra::getCantidad() const{
+	return cantidad;
 }
 
 
@@ -21,14 +21,14 @@ bool letra::operator == (const letra & otra){
 istream & operator >> (istream & is, letra & l){
 
 	is >> l.caracter;
-	is >> l.num_apariciones;
+	is >> l.cantidad;
 	is >> l.puntuacion;
 
 	return is;
 }
 
 ostream & operator << (ostream & os, const letra & l){
-	os << l.caracter << "\t" << l.num_apariciones << "\t" << l.puntuacion << endl;
+	os << l.caracter << "\t" << l.cantidad << "\t" << l.puntuacion << endl;
 
 	return os;
 }

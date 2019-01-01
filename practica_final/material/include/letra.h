@@ -11,7 +11,7 @@ class letra{
 	private:
 
 	   char caracter; 
-		int num_apariciones;
+		int cantidad;
       int puntuacion;
         
 	public:
@@ -19,7 +19,7 @@ class letra{
 
 		char getCaracter() const;
       int getPuntuacion () const;
-		int getNumApariciones() const;
+		int getCantidad() const;
 
 		bool operator == (const letra & otra);
 
