@@ -1,9 +1,21 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 5 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <map>
 #include <sstream>
 
 using namespace std;
 
+/**
+ * @brief Comprueba las opciones y parametros de un string
+ * @param cad Cadena a comprobar
+ *
+ * @pre Una opcion siempre va precedida de '-'
+ * @pre Un argumento de una opcion siempre va despues de dicha opcion
+ *
+ * @return map con cada opcion, y correspondiente argumento
+ */
 
 map<string, string> params(string cad);
 

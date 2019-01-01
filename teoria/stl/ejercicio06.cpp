@@ -1,7 +1,17 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 6 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <list>
 
 using namespace std;
+
+/**
+ * @brief Elimina todas las apareciones de un elemento en una lista
+ * @param l Lista
+ * @param x Elemento a eliminar
+ *
+ */
 
 template <typename T>
 void elimina(list<T> &l, const T &x);

@@ -1,7 +1,20 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 10 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <list>
 
 using namespace std;
+
+/**
+ * @brief Mezcla ordenadamente dos listas
+ * @param l1 Lista con la que trabajar
+ * @param l2 Lista con la que trabajar
+ *
+ * @pre l1 y l2 estan ordenadas
+ *
+ * @return Lista con los elementos de l1 y l2 ordenados
+ */
 
 template <typename T>
 list<T> mezclar(const list<T> &l1, const list<T> &l2);

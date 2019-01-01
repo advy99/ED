@@ -1,7 +1,18 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 1 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <map>
 
 using namespace std;
+
+/**
+ * @brief Encripta una cadena, usando el codigo pasado por argumento
+ * @param cad Cadena a encriptar
+ * @param codigo Codigo con el que encriptar
+ *
+ * @return string Codigo encriptado
+ */
 
 string encripta(string cad, const map<char, char> &codigo);
 

@@ -1,8 +1,18 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 3 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <map>
 #include <fstream>
 
 using namespace std;
+
+/**
+ * @brief Cuenta el numero de veces que aparece cada palabra en un fichero de texto
+ * @param nom_fich Nombre del fichero en el que contar las palabras
+ *
+ * @return map con cada palabra, y el numero de veces que aparece
+ */
 
 map<string, int> contar(string nom_fich);
 

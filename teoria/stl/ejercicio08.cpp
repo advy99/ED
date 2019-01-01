@@ -1,7 +1,17 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 8 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <list>
 
 using namespace std;
+
+/**
+ * @brief Devuelve una lista con los elementos en orden inverso
+ * @param l Lista con la que trabajar
+ *
+ * @return Lista con los elementos de l en orden invertido
+ */
 
 template <typename T>
 list<T> inversa(const list<T> &l);

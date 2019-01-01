@@ -1,7 +1,18 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 2 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <map>
 
 using namespace std;
+
+/**
+ * @brief desencripta una cadena, usando el codigo pasado por argumento
+ * @param cad Cadena a desencriptar
+ * @param codigo Codigo con el que desencriptar
+ *
+ * @return string Codigo desencriptado
+ */
 
 string desencripta(string cad, const map<char, char> &codigo);
 

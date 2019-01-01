@@ -1,5 +1,5 @@
 //Antonio David Villegas Yeguas
-// Ejercicio 9 - ED 18/19 - Relacion STL
+// Ejercicio 11 - ED 18/19 - Relacion STL
 
 #include <iostream>
 #include <list>
@@ -7,17 +7,17 @@
 using namespace std;
 
 /**
- * @brief Invierte los elementos de una lista
+ * @brief Inserta el elemento x - 1 en una lista, justo despues del elemento x
  * @param l Lista con la que trabajar
+ * @param x Elemento
  *
  */
-template <typename T>
-void inversa(list<T> &l);
+
+void inserta_antes( list<int>  &l, int x);
 
 int main(){
 
    list<int> lista;
-   list<int> invertida;
    int num;
 
    cout << "Introduce un elemento (negativo para finalizar): ";
@@ -29,6 +29,9 @@ int main(){
       cin >> num;
    }
 
+   cout << "Introduce un a elemento a buscar: ";
+   cin >> num;
+
    list<int>::iterator it;
 
    cout << "Contenido de la lista: "<< endl;
@@ -38,29 +41,28 @@ int main(){
 
    cout << endl << endl;
 
+   inserta_antes(lista, num);
 
-   inversa(lista);
-
-   cout << "Contenido de la lista inversa: "<< endl;
+   cout << "Contenido de la lista despues de ejecutar inserta_antes: " << endl;
    for(it = lista.begin(); it != lista.end(); it++){
       cout << (*it) << " ";
    }
 
+   cout << endl << endl;
 
    return 0;
-
 }
 
+void inserta_antes( list<int> &l, int x){
+   list<int>::iterator it = l.begin();
 
-template<typename T>
-void inversa(list<T> &l){
-   typename list<T>::const_reverse_iterator it;
-   list <T> invertida;
+   while(it != l.end()){
 
-   for(it = l.rbegin(); it != l.rend(); it++){
-      invertida.push_back((*it));
+      if ((*it) == x){
+         l.insert(++it, (x - 1));
+      }else{
+         it++;
+      }
+
    }
-
-   l = invertida;
-
 }

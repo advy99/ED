@@ -1,7 +1,16 @@
+//Antonio David Villegas Yeguas
+// Ejercicio 7 - ED 18/19 - Relacion STL
+
 #include <iostream>
 #include <list>
 
 using namespace std;
+
+/**
+ * @brief Eliminar las apariciones de un elemento duplicado en una lista
+ * @param l List
+ *
+ */
 
 template <typename T>
 void elimina_duplicados(list<T> &l);
