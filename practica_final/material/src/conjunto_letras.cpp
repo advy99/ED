@@ -26,9 +26,36 @@ letra conjunto_letras::getLetra(const letra & letra) const{
 	return ( *(letras.find(letra)) );
 }
 
+
 bool conjunto_letras::Esta(const letra & letra) const{
 	return ( letras.find(letra) != letras.end() ) ;
 }
+
+int conjunto_letras::getPuntuacion(const string palabra, const char & modo) const{
+	int total = 0;
+
+	if (modo == 'P'){
+		letra l;
+
+		for(size_t i = 0; i < palabra.size(); i++){
+			
+			l.setCaracter( toupper(palabra.at(i)) );
+
+			l = (*letras.find(l));
+
+			total += l.getPuntuacion();
+
+
+		}
+
+	}else{
+		total = palabra.size();
+	}
+	
+
+	return total;
+}
+
 
 istream & operator >> (istream & is, conjunto_letras & conjunto){
 

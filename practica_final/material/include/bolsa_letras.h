@@ -16,6 +16,8 @@ class bolsa_letras{
 		bolsa_letras(const bolsa_letras & otra);
 		bolsa_letras(const conjunto_letras & c);
 
+		int size() const;
+
 		unordered_multiset<char> getBolsa();
 		void addLetra(const letra & l);
 		void addLetra(const char & l);
@@ -25,6 +27,8 @@ class bolsa_letras{
 
 		bool Esta(const letra & l);
 		bool Esta(const char & c);
+
+		bool estanLetras(const string palabra);
 
 		friend istream & operator >> (istream & is, bolsa_letras & bolsa );
 
@@ -63,10 +67,6 @@ class bolsa_letras{
 	const_iterator end() const;
 
 };
-
-
-
-
 
 
 

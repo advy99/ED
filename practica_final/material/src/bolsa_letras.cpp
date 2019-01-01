@@ -21,6 +21,10 @@ bolsa_letras::bolsa_letras( const conjunto_letras & c){
 
 }
 
+int bolsa_letras::size() const{
+	return bolsa.size();
+}
+
 unordered_multiset<char> bolsa_letras::getBolsa(){
 	return bolsa;
 } 
@@ -30,7 +34,7 @@ void bolsa_letras::addLetra(const letra & l){
 	char caracter = l.getCaracter();
 
 	for(int i = 0; i < l.getCantidad(); i++){
-		bolsa.insert(caracter);
+		bolsa.insert(toupper(caracter));
 	}
 
 
@@ -38,7 +42,8 @@ void bolsa_letras::addLetra(const letra & l){
 
 void bolsa_letras::addLetra(const char & caracter){
 
-	bolsa.insert(caracter);
+
+	bolsa.insert(toupper(caracter));
 
 }
 
@@ -60,42 +65,45 @@ void bolsa_letras::removeLetra(const letra & l){
 
 	}
 
-
 }
 
 
 void bolsa_letras::removeLetra(const char & caracter){
 
-
-	iterator it;
-
-	it.it = bolsa.find(caracter);
-
-	while (it != end()){
-
-		bolsa.erase(it.it);
-
-		it.it = bolsa.find(caracter);
-
-	}
-
+	bolsa.erase( bolsa.find(caracter) );
 
 }
+
+
+
+
+
 
 
 bolsa_letras bolsa_letras::getLetras(int num){
 	bolsa_letras aux;
 	iterator it;
-
-	it = begin();
+	int avance;
 
 	for (int i = 0; i < num; i++){
+		it = begin();
+		srand(time(NULL));
+		avance = rand() % size();
+		for(int i = 0; i < avance; i++)
+			++it;
 		aux.addLetra((*it));
-		++it;
+		it.it = bolsa.erase(it.it);
+
+	
 	}
 
 	return aux;
 }
+
+
+
+
+
 
 
 bool bolsa_letras::Esta(const letra & l){
@@ -106,6 +114,16 @@ bool bolsa_letras::Esta(const char & c){
 	return ( bolsa.find(c) != bolsa.end() ) ;
 }
 
+
+bool bolsa_letras::estanLetras(const string palabra){
+	bool estan = true;
+
+	for(size_t i = 0; i < palabra.size(); i++){
+		estan = bolsa.find( toupper(palabra.at(i)) ) != bolsa.end();
+	}
+
+	return estan;
+}
 
 
 
@@ -216,5 +234,4 @@ bool bolsa_letras::const_iterator::operator==(const bolsa_letras::const_iterator
 bool bolsa_letras::const_iterator::operator!=(const bolsa_letras::const_iterator &i) const{
 	return !(i.it == it);
 }
-
 

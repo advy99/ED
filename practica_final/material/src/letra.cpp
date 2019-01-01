@@ -2,7 +2,14 @@
 #include "letra.h"
 
 letra::letra(){
-	
+
+}
+
+letra::letra(char c, int cant, int p){
+	caracter = c;
+	cantidad = cant;
+	puntuacion = p;
+
 }
 
 char letra::getCaracter() const{
@@ -15,6 +22,18 @@ int letra::getPuntuacion() const{
 
 int letra::getCantidad() const{
 	return cantidad;
+}
+
+void letra::setCaracter(char c){
+	caracter = c;
+}
+
+void letra::setCantidad(int c){
+	cantidad = c;
+}
+
+void letra::setPuntuacion(int p){
+	puntuacion = p;
 }
 
 

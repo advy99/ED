@@ -30,6 +30,8 @@ class conjunto_letras{
 
 		bool Esta( const letra & letra) const;
 
+		int getPuntuacion(const string palabra, const char & modo) const;
+
 		friend istream & operator >> (istream & is, conjunto_letras &conjunto );
 
 		friend ostream & operator << (ostream & os, const conjunto_letras &conjunto); 
