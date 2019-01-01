@@ -35,8 +35,6 @@ class conjunto_letras{
 		friend ostream & operator << (ostream & os, const conjunto_letras &conjunto); 
 
 
-
-
 		class iterator {
 			public:
 				iterator();
@@ -48,9 +46,25 @@ class conjunto_letras{
 			private:			
 				set<letra>::iterator it;
 		};
+
+
+		class const_iterator {
+			public:
+				const_iterator();
+				letra operator *() const;
+				const_iterator & operator ++ ();
+				bool operator ==(const const_iterator &i) const;
+				bool operator !=(const const_iterator &i) const;
+				friend class conjunto_letras;
+			private:			
+				set<letra>::const_iterator it;
+		};
 			
 		iterator begin();
+		const_iterator begin() const;
 		iterator end();	
+		const_iterator end() const;
+
 
 
 

@@ -54,9 +54,9 @@ ostream & operator << (ostream & os, const conjunto_letras &conjunto){
 	
 	os << "#Letra Cantidad Puntos" << endl;
 
-	set<letra>::const_iterator it;
+	conjunto_letras::const_iterator it;
 
-	for(it = conjunto.letras.begin(); it != conjunto.letras.end(); it++){
+	for(it = conjunto.begin(); it != conjunto.end(); ++it){
 		os << (*it) << endl;		
 	}
 	return os;
@@ -78,12 +78,29 @@ conjunto_letras::iterator conjunto_letras::begin(){
 
 }
 
+conjunto_letras::const_iterator conjunto_letras::begin() const{
+
+	// para el comienzo, lo iniciamos al comienzo del conjunto y lo devolvemos
+	const_iterator iterador;
+	iterador.it = letras.begin();
+	return iterador;
+
+}
+
 conjunto_letras::iterator conjunto_letras::end(){
 	//para el final, devolvemos uno vacio
 	iterator iterador;
 	iterador.it = letras.end();
 	return iterador;
 }
+
+conjunto_letras::const_iterator conjunto_letras::end() const{
+	//para el final, devolvemos uno vacio
+	const_iterator iterador;
+	iterador.it = letras.end();
+	return iterador;
+}
+
 
 conjunto_letras::iterator::iterator(){
 //Creo que esto esta vacio
@@ -104,6 +121,30 @@ bool conjunto_letras::iterator::operator==(const conjunto_letras::iterator &i){
 }
 
 bool conjunto_letras::iterator::operator!=(const conjunto_letras::iterator &i){
+	return !(i.it == it);
+}
+
+
+
+conjunto_letras::const_iterator::const_iterator(){
+//Creo que esto esta vacio
+
+}
+
+letra conjunto_letras::const_iterator::operator *() const{ 
+	return (*it);
+}
+
+conjunto_letras::const_iterator & conjunto_letras::const_iterator::operator++(){ 
+	++it;
+	return (*this);
+}
+
+bool conjunto_letras::const_iterator::operator==(const conjunto_letras::const_iterator &i) const{
+	return i.it == it;
+}
+
+bool conjunto_letras::const_iterator::operator!=(const conjunto_letras::const_iterator &i) const{
 	return !(i.it == it);
 }
 

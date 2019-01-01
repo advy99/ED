@@ -20,17 +20,33 @@ int main(int argc, char * argv[]){
 
 	ifstream f(argv[1]);
 
+	int num_letras = atoi(argv[3]);
+
 	lista_palabras palabras;
 
 	f >> palabras;
 
 	f.close();
 
-	bolsa_letras bolsa;
+	conjunto_letras letras;
 
 	f.open(argv[2], fstream::in);
 
-	f >> bolsa;
+	f >> letras;
+
+	f.close();
+
+	bolsa_letras bolsa(letras);
+
+	bolsa_letras aleatorias;
+
+	aleatorias = bolsa.getLetras( num_letras );
+
+	cout << "Las letras son: ";
+
+	cout << aleatorias;
+
+	
 
 
 

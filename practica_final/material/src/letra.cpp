@@ -1,6 +1,10 @@
 #include <iostream>
 #include "letra.h"
 
+letra::letra(){
+	
+}
+
 char letra::getCaracter() const{
 	return caracter;
 }
@@ -14,8 +18,12 @@ int letra::getCantidad() const{
 }
 
 
-bool letra::operator == (const letra & otra){
+bool letra::operator == (const letra & otra) const{
 	return otra.getCaracter() == getCaracter();
+}
+
+bool letra::operator < (const letra & otra) const{
+	return caracter < otra.getCaracter();
 }
 
 istream & operator >> (istream & is, letra & l){
