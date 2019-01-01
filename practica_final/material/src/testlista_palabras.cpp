@@ -34,7 +34,7 @@ int main (int argc, char * argv[]){
 
 	cout << "Leido el lista_palabras..." << endl;
 	cout << D;
-	f >> D;
+
 	int longitud;
 
 	cout << "Dime la longitud de palabras que quieres ver: ";
