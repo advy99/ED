@@ -75,7 +75,7 @@ class lista_palabras{
 		 * @return true si la palabra eseta en el lista_palabras. false en caso contrario
 		 */
 
-		bool Esta (string palabra); //
+		bool Esta ( string palabra) const; //
 		
 		/**
 		 * @brief Lee de un flujo de entrada un lista_palabras

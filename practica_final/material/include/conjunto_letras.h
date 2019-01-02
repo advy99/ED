@@ -4,6 +4,7 @@
 #include <iostream>
 #include <set>
 #include "letra.h"
+#include <algorithm>
 
 using namespace std;
 

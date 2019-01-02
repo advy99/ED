@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "lista_palabras.h"
+#include "conjunto_letras.h"
 #include "bolsa_letras.h"
 
 using namespace std;
@@ -68,30 +69,62 @@ int main(int argc, char * argv[]){
 
 	bolsa_letras aleatorias;
 
-	aleatorias = bolsa.getLetras( num_letras );
 
-	cout << "Las letras son: ";
+	bool salir = false;
 
-	cout << aleatorias;
+	char jugar;
 
+	while(!salir){
+		aleatorias = bolsa.getLetras( num_letras );
 
-	string usuario;
+		cout << "Las letras son: ";
 
-	cout << endl << "Dime tu solucion: ";
-	cin >> usuario;
+		cout << aleatorias;
 
-	if (aleatorias.estanLetras(usuario)){
-		if( palabras.Esta(usuario) ){
-			cout << endl << usuario << "\t Puntuacion: " << letras.getPuntuacion(usuario, argv[4][0]);
-		}else {
-			cout << endl << "Esa palabra no existe" << endl;
+		string usuario;
+
+		cout << endl << "Dime tu solucion: ";
+		cin >> usuario;
+
+		if (aleatorias.estanLetras(usuario)){
+			if( palabras.Esta(usuario) ){
+				cout << endl << usuario << "\t Puntuacion: " << letras.getPuntuacion(usuario, argv[4][0]) << endl << endl;
+
+			}else {
+				cout << endl << "Esa palabra no existe" << endl << endl;
+			}
+		}else{
+			cout << endl << "La palabra dada contiene caracteres que no se han proporcionado" << endl;
 		}
-	}else{
-		cout << endl << "La palabra dada contiene caracteres que no se han proporcionado" << endl;
+
+
+
+		set<pair<int, string> > soluciones = aleatorias.getSoluciones(letras, palabras, argv[4][0]);
+
+		set<pair<int, string> >::const_iterator it;
+
+		cout << "Posibles soluciones: " << endl;
+		for(it = soluciones.begin(); it != soluciones.end(); ++it){
+			cout << it->first << " Puntuacion: " << it->second << endl;  
+		}
+
+		cout << endl << "La mejor solucion es :" << endl;
+		cout << soluciones.rbegin()->first << " Puntuacion " << soluciones.rbegin()->second << endl; 
+
+
+		do{
+			cout << "¿Quieres volver a jugar? [S/N] ";
+
+			cin >> jugar;
+
+			jugar = toupper(jugar);
+
+		}while(jugar != 'S' && jugar != 'N');
+		
+		if (jugar != 'S')
+			salir = true;
+
 	}
-
-
-
 
 
 	return 0;

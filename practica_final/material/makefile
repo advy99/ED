@@ -32,13 +32,13 @@ $(BIN)/letras : $(OBJ)/letras.o $(OBJ)/lista_palabras.o $(OBJ)/bolsa_letras.o \
 $(OBJ)/letra.o : $(SRC)/letra.cpp $(INC)/letra.h
 	$(CXX) $(CPPFLAGS) $(SRC)/letra.cpp -o $(OBJ)/letra.o
 
-$(OBJ)/conjunto_letras.o : $(SRC)/conjunto_letras.cpp $(INC)/conjunto_letras.h
+$(OBJ)/conjunto_letras.o : $(SRC)/conjunto_letras.cpp $(INC)/conjunto_letras.h $(INC)/letra.h $(INC)/bolsa_letras.h $(INC)/lista_palabras.h
 	$(CXX) $(CPPFLAGS) $(SRC)/conjunto_letras.cpp -o $(OBJ)/conjunto_letras.o
 
 $(OBJ)/lista_palabras.o : $(SRC)/lista_palabras.cpp $(INC)/lista_palabras.h
 	$(CXX) $(CPPFLAGS) $(SRC)/lista_palabras.cpp -o $(OBJ)/lista_palabras.o
 
-$(OBJ)/bolsa_letras.o : $(SRC)/bolsa_letras.cpp $(INC)/bolsa_letras.h
+$(OBJ)/bolsa_letras.o : $(SRC)/bolsa_letras.cpp $(INC)/bolsa_letras.h $(INC)/conjunto_letras.h $(INC)/letra.h
 	$(CXX) $(CPPFLAGS) $(SRC)/bolsa_letras.cpp -o $(OBJ)/bolsa_letras.o
 
 
@@ -47,7 +47,7 @@ $(OBJ)/bolsa_letras.o : $(SRC)/bolsa_letras.cpp $(INC)/bolsa_letras.h
 $(OBJ)/testlista_palabras.o : $(SRC)/testlista_palabras.cpp
 	$(CXX) $(CPPFLAGS) $(SRC)/testlista_palabras.cpp -o $(OBJ)/testlista_palabras.o
 
-$(OBJ)/letras.o : $(SRC)/letras.cpp $(INC)/lista_palabras.h $(INC)/bolsa_letras.h
+$(OBJ)/letras.o : $(SRC)/letras.cpp $(INC)/lista_palabras.h $(INC)/bolsa_letras.h $(INC)/conjunto_letras.h
 	$(CXX) $(CPPFLAGS) $(SRC)/letras.cpp -o $(OBJ)/letras.o
 
 

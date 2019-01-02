@@ -4,12 +4,19 @@
 
 #include "letra.h"
 #include "conjunto_letras.h"
+#include "lista_palabras.h"
 #include <unordered_set>
 
 
 class bolsa_letras{
 	private:
 		unordered_multiset<char> bolsa;
+
+
+		//metodo privado para obtener las combinaciones de un string, ej
+		// string abc:
+		//  a ab ac b ba bc c ca cb abc acb bac bca cab cba
+		void getCombinaciones( string str, string res, string & total );
 		
 	public:
 		bolsa_letras();
@@ -24,6 +31,10 @@ class bolsa_letras{
 		void removeLetra(const letra & l);
 		void removeLetra(const char & l);
 		bolsa_letras getLetras(int num);
+
+
+		set< pair<int, string> > getSoluciones(const conjunto_letras & letras, const lista_palabras & lista, const char & modo);
+
 
 		bool Esta(const letra & l);
 		bool Esta(const char & c);

@@ -57,6 +57,8 @@ int conjunto_letras::getPuntuacion(const string palabra, const char & modo) cons
 }
 
 
+
+
 istream & operator >> (istream & is, conjunto_letras & conjunto){
 
 	letra l;
@@ -148,7 +150,7 @@ bool conjunto_letras::iterator::operator==(const conjunto_letras::iterator &i){
 }
 
 bool conjunto_letras::iterator::operator!=(const conjunto_letras::iterator &i){
-	return !(i.it == it);
+	return i.it != it;
 }
 
 
@@ -172,6 +174,6 @@ bool conjunto_letras::const_iterator::operator==(const conjunto_letras::const_it
 }
 
 bool conjunto_letras::const_iterator::operator!=(const conjunto_letras::const_iterator &i) const{
-	return !(i.it == it);
+	return i.it != it;
 }
 

@@ -28,7 +28,7 @@ vector<string> lista_palabras::palabras_longitud(int longitud){
 }
 
 
-bool lista_palabras::Esta(string palabra){
+bool lista_palabras::Esta( string palabra) const{
 	return (datos.find(palabra) != datos.end());
 }
 
@@ -91,7 +91,7 @@ bool lista_palabras::iterator::operator==(const lista_palabras::iterator &i){
 }
 
 bool lista_palabras::iterator::operator!=(const lista_palabras::iterator &i){
-	return !(i.it == it);
+	return i.it != it;
 }
 
 

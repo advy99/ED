@@ -1,5 +1,6 @@
 #include "bolsa_letras.h"
 #include "conjunto_letras.h"
+#include <sstream>
 
 bolsa_letras::bolsa_letras(){
 
@@ -100,6 +101,51 @@ bolsa_letras bolsa_letras::getLetras(int num){
 	return aux;
 }
 
+
+void bolsa_letras::getCombinaciones( string str, string res, string & total ) {
+
+		total += res + "\n";
+
+		for( size_t i = 0; i < str.length(); i++ )
+			getCombinaciones( string(str).erase(i,1), res + str[i], total );
+}
+
+set< pair<int, string> > bolsa_letras::getSoluciones(const conjunto_letras & letras, const lista_palabras & lista, const char & modo){
+	set< pair<int,string> > soluciones;
+
+	pair<int,string> sol;
+
+	string palabras = "";
+	string todas = "";
+
+	for (iterator it = begin(); it != end(); ++it){
+		palabras.push_back(tolower(*it));
+	}
+
+	getCombinaciones(palabras, "", todas);
+
+	string palabra;
+
+	istringstream	iss;
+
+	iss.str(todas);
+
+	while(!iss.eof()){
+
+		iss >> palabra;
+		if (lista.Esta(palabra)){
+			sol.second = palabra;
+			sol.first = letras.getPuntuacion(palabra, modo);
+
+			soluciones.insert(sol);
+		}
+	}
+
+
+
+	return soluciones;
+
+}
 
 
 
@@ -204,11 +250,11 @@ bolsa_letras::iterator & bolsa_letras::iterator::operator++(){
 }
 
 bool bolsa_letras::iterator::operator==(const bolsa_letras::iterator &i){
-	return i.it == it;
+	return i.it == this->it;
 }
 
 bool bolsa_letras::iterator::operator!=(const bolsa_letras::iterator &i){
-	return !(i.it == it);
+	return i.it != this->it;
 }
 
 
@@ -228,10 +274,10 @@ bolsa_letras::const_iterator & bolsa_letras::const_iterator::operator++(){
 }
 
 bool bolsa_letras::const_iterator::operator==(const bolsa_letras::const_iterator &i) const{
-	return i.it == it;
+	return i.it == this->it;
 }
 
 bool bolsa_letras::const_iterator::operator!=(const bolsa_letras::const_iterator &i) const{
-	return !(i.it == it);
+	return i.it != this->it;
 }
 
