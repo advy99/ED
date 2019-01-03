@@ -72,6 +72,26 @@ lista_palabras::iterator lista_palabras::end(){
 	return iterador;
 }
 
+
+
+
+
+lista_palabras::const_iterator lista_palabras::begin()const{
+
+	// para el comienzo, lo iniciamos al comienzo de datos y lo devolvemos
+	const_iterator iterador;
+	iterador.it = datos.begin();
+	return iterador;
+
+}
+
+lista_palabras::const_iterator lista_palabras::end()const{
+	//para el final, devolvemos uno vacio
+	const_iterator iterador;
+	iterador.it = datos.end();
+	return iterador;
+}
+
 lista_palabras::iterator::iterator(){
 //Creo que esto esta vacio
 
@@ -91,6 +111,30 @@ bool lista_palabras::iterator::operator==(const lista_palabras::iterator &i){
 }
 
 bool lista_palabras::iterator::operator!=(const lista_palabras::iterator &i){
+	return i.it != it;
+}
+
+
+
+lista_palabras::const_iterator::const_iterator(){
+//Creo que esto esta vacio
+
+}
+
+string lista_palabras::const_iterator::operator *() const{ 
+	return (*it);
+}
+
+lista_palabras::const_iterator & lista_palabras::const_iterator::operator++(){ 
+	++it;
+	return (*this);
+}
+
+bool lista_palabras::const_iterator::operator==(const lista_palabras::const_iterator &i) const{
+	return i.it == it;
+}
+
+bool lista_palabras::const_iterator::operator!=(const lista_palabras::const_iterator &i)const{
 	return i.it != it;
 }
 

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <set>
 #include "letra.h"
-#include <algorithm>
+#include "lista_palabras.h"
 
 using namespace std;
 
@@ -29,9 +29,16 @@ class conjunto_letras{
 
 		letra getLetra(const letra & letra) const;
 
+		letra getLetra(const char & c);
+
+
 		bool Esta( const letra & letra) const;
 
 		int getPuntuacion(const string palabra, const char & modo) const;
+
+		int totalLetras() const;
+
+		conjunto_letras contarLetras(const lista_palabras & lista);
 
 		friend istream & operator >> (istream & is, conjunto_letras &conjunto );
 

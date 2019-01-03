@@ -107,9 +107,23 @@ class lista_palabras{
 			private:			
 				set<string>::iterator it;
 		};
+
+		class const_iterator {
+			public:
+				const_iterator();
+				string operator *() const;
+				const_iterator & operator ++ ();
+				bool operator ==(const const_iterator &i) const;
+				bool operator !=(const const_iterator &i) const;
+				friend class lista_palabras;
+			private:			
+				set<string>::const_iterator it;
+		};
 		
 		iterator begin();
+		const_iterator begin() const;
 		iterator end();	
+		const_iterator end() const;
 
 };
 

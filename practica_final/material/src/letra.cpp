@@ -5,7 +5,7 @@ letra::letra(){
 
 }
 
-letra::letra(char c, int cant, int p){
+letra::letra(const char & c, const int & cant, const int & p){
 	caracter = c;
 	cantidad = cant;
 	puntuacion = p;
@@ -24,15 +24,15 @@ int letra::getCantidad() const{
 	return cantidad;
 }
 
-void letra::setCaracter(char c){
+void letra::setCaracter(const char & c){
 	caracter = c;
 }
 
-void letra::setCantidad(int c){
+void letra::setCantidad( const int & c){
 	cantidad = c;
 }
 
-void letra::setPuntuacion(int p){
+void letra::setPuntuacion(const int & p){
 	puntuacion = p;
 }
 

@@ -16,15 +16,15 @@ class letra{
         
 	public:
 		letra();
-		letra(char c, int cant, int p);
+		letra( const char & c, const int & cant,const int & p);
 
 		char getCaracter() const;
       int getPuntuacion () const;
 		int getCantidad() const;
 
-		void setCaracter( char c);
-		void setCantidad(int c);
-		void setPuntuacion(int p);
+		void setCaracter(const char & c);
+		void setCantidad( const int & c);
+		void setPuntuacion(const int & p);
 
 		bool operator == (const letra & otra) const;
 		bool operator < (const letra & otra) const;

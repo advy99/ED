@@ -90,7 +90,7 @@ int main(int argc, char * argv[]){
 			if( palabras.Esta(usuario) ){
 				cout << endl << usuario << "\t Puntuacion: " << letras.getPuntuacion(usuario, argv[4][0]) << endl << endl;
 
-			}else {
+			}else {	
 				cout << endl << "Esa palabra no existe" << endl << endl;
 			}
 		}else{
