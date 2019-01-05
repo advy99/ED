@@ -108,9 +108,15 @@ int main(int argc, char * argv[]){
 			cout << it->first << " Puntuacion: " << it->second << endl;  
 		}
 
-		cout << endl << "La mejor solucion es :" << endl;
-		cout << soluciones.rbegin()->first << " Puntuacion " << soluciones.rbegin()->second << endl; 
+		if(soluciones.size() > 0){
+			cout << endl << "La mejor solucion es :" << endl;
+			cout << soluciones.rbegin()->first << " Puntuacion " << soluciones.rbegin()->second << endl; 
 
+		}else {
+			cout << endl << "Te has quedado sin letras" << endl;
+		}
+
+		
 
 		do{
 			cout << "¿Quieres volver a jugar? [S/N] ";

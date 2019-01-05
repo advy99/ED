@@ -83,21 +83,25 @@ void bolsa_letras::removeLetra(const char & caracter){
 
 bolsa_letras bolsa_letras::getLetras(int num){
 	bolsa_letras aux;
-	iterator it;
-	int avance;
 
-	for (int i = 0; i < num; i++){
-		it = begin();
-		srand(time(NULL));
-		avance = rand() % size();
-		for(int i = 0; i < avance; i++)
-			++it;
-		aux.addLetra((*it));
-		it.it = bolsa.erase(it.it);
+	if (size() > num){
+		iterator it;
+		int avance;
 
-	
+		for (int i = 0; i < num; i++){
+			it = begin();
+			srand(time(NULL));
+			avance = rand() % size();
+			for(int i = 0; i < avance; i++)
+				++it;
+			aux.addLetra((*it));
+			it.it = bolsa.erase(it.it);
+
+		
+		}
+
 	}
-
+	
 	return aux;
 }
 
@@ -113,34 +117,35 @@ void bolsa_letras::getCombinaciones( string str, string res, string & total ) {
 set< pair<int, string> > bolsa_letras::getSoluciones(const conjunto_letras & letras, const lista_palabras & lista, const char & modo){
 	set< pair<int,string> > soluciones;
 
-	pair<int,string> sol;
+	if(size() > 0){
+		pair<int,string> sol;
 
-	string palabras = "";
-	string todas = "";
+		string palabras = "";
+		string todas = "";
 
-	for (iterator it = begin(); it != end(); ++it){
-		palabras.push_back(tolower(*it));
-	}
+		for (iterator it = begin(); it != end(); ++it){
+			palabras.push_back(tolower(*it));
+		}
 
-	getCombinaciones(palabras, "", todas);
+		getCombinaciones(palabras, "", todas);
 
-	string palabra;
+		string palabra;
 
-	istringstream	iss;
+		istringstream	iss;
 
-	iss.str(todas);
+		iss.str(todas);
 
-	while(!iss.eof()){
+		while(!iss.eof()){
 
-		iss >> palabra;
-		if (lista.Esta(palabra)){
-			sol.second = palabra;
-			sol.first = letras.getPuntuacion(palabra, modo);
+			iss >> palabra;
+			if (lista.Esta(palabra)){
+				sol.second = palabra;
+				sol.first = letras.getPuntuacion(palabra, modo);
 
-			soluciones.insert(sol);
+				soluciones.insert(sol);
+			}
 		}
 	}
-
 
 
 	return soluciones;
