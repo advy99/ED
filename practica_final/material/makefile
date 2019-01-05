@@ -6,7 +6,7 @@ CXX = g++
 CPPFLAGS = -std=c++11 -Wall -g  -I$(INC) -c -O2
 
 
-all: $(BIN)/testlista_palabras $(BIN)/letras $(BIN)/cantidad_letras
+all: documentacion $(BIN)/testlista_palabras $(BIN)/letras $(BIN)/cantidad_letras
 # ************ Generación de documentación ******************
 documentacion:
 	doxygen doc/doxys/Doxyfile

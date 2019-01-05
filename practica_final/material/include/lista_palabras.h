@@ -20,7 +20,15 @@ using namespace std;
   *
   * Una instancia del tipo de datos abstracto @c lista_palabras, es un objeto
   * compuesto por un listado de palabras.
-  *  *
+  *  
+  * Lo reprentamos como:
+  * 
+  * palabra
+  * .
+  * .
+  * .
+  * .
+  * palabra
   *
   * @author María Sánchez Marcos
   * @author Antonio David Villegas Yeguas
@@ -32,16 +40,20 @@ class lista_palabras{
 	private:
 
 		/**
-		 * @page repTermino Rep del TDA lista_palabras
+		 * @page repLista_palabras Rep del TDA lista_palabras
 		 *
 		 * @section invTermino Invariante de la representación
+		 * 
+		 * datos != NULL y datos.size() >= 0
+		 * 
+		 * Como vemos, permitimos un listado de palabras vacio
 		 *
 		 *
 		 * @section faConjunto Función de abstracción
 		 *
 		 * Un objeto valido @e rep del TDA lista_palabras representa al valor
 		 *
-		 * (rep.palabra)
+		 * (rep.datos)
 		 *
 		 */
 
@@ -98,31 +110,170 @@ class lista_palabras{
 
 		class iterator {
 			public:
+
+				/**
+				 * @brief Constructor por defecto, crea un iterator vacio
+				 * 
+				 */
 				iterator();
+
+				/**
+				 * @brief Operador de acceso *
+				 * 
+				 * @return string Objeto al que apunta el iterador
+				 * 
+				 */
 				string operator *();
+
+				/**
+				 * @brief Operador ++, avanza en una posicion el iterador constante 
+				 * 
+				 * @return const_iterator Iterados actual
+				 */
 				iterator & operator ++ ();
+
+
+				/**
+				 * @brief Operador ==, comprueba si un operador es igual a otro
+				 * 
+				 * @param i Iterador a comparar con el iterador implicito
+				 * 
+				 * @return bool Resultado de la comprobacion, true si se cumple, false si no
+				 */
+
+
 				bool operator ==(const iterator &i);
+
+				/**
+				 * @brief Operador !=, comprueba si un operador es distinto a otro
+				 * 
+				 * @param i Iterador a comparar con el iterador implicito
+				 * 
+				 * @return bool Resultado de la comprobacion, true si se cumple, false si no
+				 */
 				bool operator !=(const iterator &i);
 				friend class lista_palabras;
-			private:			
+			private:		
+
+				/**
+				 * @page repIterator Rep del TDA iterator
+				 *
+				 * @section invIterator Invariante de la representación
+				 *
+				 * it == NULL o datos.begin() <= it <= datos.end()
+				 *
+				 * @section faConjunto Función de abstracción
+				 *
+				 * Un objeto valido @e rep del TDA iterator representa al valor
+				 *
+				 * (rep.it)
+				 *
+				 */
+
+
+
 				set<string>::iterator it;
 		};
 
 		class const_iterator {
 			public:
+				
+				/**
+				 * @brief Constructor por defecto, crea un iterator vacio
+				 * 
+				 */
+
 				const_iterator();
+
+				/**
+				 * @brief Operador de acceso *
+				 * 
+				 * @return string Objeto al que apunta el iterador
+				 * 
+				 */
+
 				string operator *() const;
+
+				/**
+				 * @brief Operador ++, avanza en una posicion el iterador constante 
+				 * 
+				 * @return const_iterator Iterados actual
+				 */
 				const_iterator & operator ++ ();
+
+				/**
+				 * @brief Operador ==, comprueba si un operador es igual a otro
+				 * 
+				 * @param i Iterador a comparar con el iterador implicito
+				 * 
+				 * @return bool Resultado de la comprobacion, true si se cumple, false si no
+				 */
+
 				bool operator ==(const const_iterator &i) const;
+
+
+				/**
+				 * @brief Operador !=, comprueba si un operador es distinto a otro
+				 * 
+				 * @param i Iterador a comparar con el iterador implicito
+				 * 
+				 * @return bool Resultado de la comprobacion, true si se cumple, false si no
+				 */
 				bool operator !=(const const_iterator &i) const;
+
+
+
 				friend class lista_palabras;
-			private:			
+			private:
+
+				/**
+				 * @page repIterator Rep del TDA const_iterator
+				 *
+				 * @section invIterator Invariante de la representación
+				 *
+				 *
+				 * @section faConjunto Función de abstracción
+				 *
+				 * Un objeto valido @e rep del TDA iterator representa al valor
+				 *
+				 * (rep.it)
+				 *
+				 */
+
 				set<string>::const_iterator it;
 		};
 		
+
+		/**
+		 * @brief Devuelve un iterador del TDA iterator, que apunta al inicio de la lista de palabras
+		 * 
+		 * @return iterator Iterador que apunta al inicio de la lista_palabras
+		 * 
+		 */
 		iterator begin();
+
+		/**
+		 * @brief Devuelve un iterador del TDA const_iterator, que apunta al inicio de la lista de palabras
+		 * 
+		 * @return const_iterator Iterador que apunta al inicio de la lista_palabras
+		 * 
+		 */
 		const_iterator begin() const;
-		iterator end();	
+
+		/**
+		 * @brief Devuelve un iterador del TDA iterator, que apunta al fin de la lista de palabras
+		 * 
+		 * @return iterator Iterador que apunta al fin de la lista_palabras
+		 * 
+		 */
+		iterator end();
+
+		/**
+		 * @brief Devuelve un iterador del TDA const_iterator, que apunta al fin de la lista de palabras
+		 * 
+		 * @return const_iterator Iterador que apunta al fin de la lista_palabras
+		 * 
+		 */	
 		const_iterator end() const;
 
 };

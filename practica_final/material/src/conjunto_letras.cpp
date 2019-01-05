@@ -27,7 +27,7 @@ letra conjunto_letras::getLetra(const letra & letra) const{
 	return ( *(letras.find(letra)) );
 }
 
-letra conjunto_letras::getLetra(const char & c){
+letra conjunto_letras::getLetra(const char & c) const{
 
 	letra l;
 	l.setCaracter(c);

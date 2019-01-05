@@ -3,6 +3,10 @@
 
 letra::letra(){
 
+	caracter = 'A';
+	cantidad = 0;
+	puntuacion = 0;
+	
 }
 
 letra::letra(const char & c, const int & cant, const int & p){
